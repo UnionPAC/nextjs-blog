@@ -1,1 +1,3 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+### to-do's
+- create a dark theme toggle (ref: https://vitalik.ca/)
+- display posts
