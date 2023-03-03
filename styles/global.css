@@ -16,7 +16,6 @@ body {
   box-sizing: border-box;
 }
 
-
 a {
   color: #0070f3;
   text-decoration: none;
@@ -29,4 +28,68 @@ a:hover {
 img {
   max-width: 100%;
   display: block;
+}
+
+img + em {
+  font-style: italic;
+  font-size: 0.7rem;
+  display: block;
+  max-width: 100%;
+  text-align: center;
+}
+
+p {
+  font-size: 0.9rem;
+  line-height: 35px;
+}
+
+ol li {
+  color: black;
+}
+
+li em {
+  font-style: italic;
+  color: black;
+}
+
+/* DARK MODE */
+.dark {
+  background-color: #1c1c1c;
+  color: #fafafa;
+}
+
+.dark a {
+  color: #77e1cd;
+}
+
+.dark p,
+ol,
+li {
+  color: #fafafa;
+}
+
+.dark h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #dfdfdf;
+}
+
+.dark h1 {
+  color: white;
+}
+
+.dark strong {
+  color: white;
+  font-weight: bold;
+}
+
+.dark li em {
+  font-style: italic;
+  color: #fafafa;
+}
+
+.dark ol li {
+  color: #fafafa;
 }

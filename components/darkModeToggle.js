@@ -1,8 +1,11 @@
+import toggleStyles from "../styles/Toggle.module.css";
+import { useEffect } from "react";
+
 export const DarkModeToggle = () => {
   const sunSvg = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-5 w-6"
+      className="h-6 w-6"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -19,7 +22,7 @@ export const DarkModeToggle = () => {
   const moonSvg = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-5 w-6"
+      className="h-6 w-6"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -32,11 +35,33 @@ export const DarkModeToggle = () => {
       ></path>
     </svg>
   );
+  
+  useEffect(() => {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark')
+      document.documentElement.querySelectorAll("input")[0].checked = true
+    }
+  })
 
   return (
-    <div className="flex items-center fixed top-8 right-[30%]">
+    <div className="flex items-center absolute top-8 right-[30%] overflow-hidden">
       <div>{sunSvg}</div>
-      
+      <div id="color-mode-switch" className="px-2 flex">
+        <label className={toggleStyles.switch}>
+          <input type="checkbox" className="toggle" onClick={() => {
+            document.documentElement.classList.toggle('dark')
+            if (!localStorage.getItem('theme')) {
+              localStorage.setItem('theme', 'dark')
+            } else {
+              localStorage.removeItem('theme')
+            }
+          }}/>
+          <span
+            className={`${toggleStyles.slider} ${toggleStyles.round}`}
+          ></span>
+        </label>
+      </div>
+
       <div>{moonSvg}</div>
     </div>
   );
